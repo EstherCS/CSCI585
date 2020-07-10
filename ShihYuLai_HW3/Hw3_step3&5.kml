@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+	
+	<!-- step3: 15 points -->	
+    <Document>
+		<Style id="z1">
+			<IconStyle>
+				<Icon>
+					<href> http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png </href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Style id="z2">
+			<IconStyle>
+				<Icon>
+					<href> http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png </href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Style id="z3">
+			<IconStyle>
+				<Icon>
+					<href> http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png </href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		
+        <name> Csci585 - HW3 </name>
+		
+		<Folder>
+		<name>libraries</name>
+        <Placemark>
+            <name> Leavey </name>
+			<description> Leavey Library </description>
+            <styleUrl>#z1</styleUrl>
+			<Point>
+                <coordinates> -118.283015, 34.021831, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> Doheny </name>
+			<description> Edward L. Doheny Jr. Memorial Library </description>
+			<styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates> -118.283730, 34.020062, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> LawLibrary </name>
+			<description> USC Gould School of Law Library </description>
+            <styleUrl>#z1</styleUrl>
+			<Point>
+                <coordinates> -118.284286, 34.018679, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> AndrusLibrary </name>
+			<description> Ethel Percy Andrus Gerontology Library </description>
+            <styleUrl>#z1</styleUrl>
+			<Point>
+                <coordinates> -118.290677, 34.020049, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> ScienceLibrary </name>
+			<description> Science and Engineering Library </description>
+            <styleUrl>#z1</styleUrl>
+			<Point>
+                <coordinates> -118.288789, 34.019607, 200 </coordinates>
+            </Point>
+        </Placemark>
+		</Folder>
+		
+		<Folder>
+		<name> cafes and stores </name>
+        <Placemark>
+            <name> bookstore </name>
+			<description> USC bookstore </description>
+            <styleUrl>#z2</styleUrl>
+			<Point>
+                <coordinates> -118.286516, 34.020593, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> Starbucks </name>
+			<description> Starbucks ( near Leavy ) </description>
+            <styleUrl>#z2</styleUrl>
+			<Point>
+                <coordinates> -118.282151, 34.021685, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> L_G </name>
+			<description> Little Galen </description>
+            <styleUrl>#z2</styleUrl>
+			<Point>
+                <coordinates> -118.287045, 34.022897, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+        <Placemark>
+            <name> CB_TL </name>
+			<description> Coffee Bean and Tea Leaf </description>
+            <styleUrl>#z2</styleUrl>
+			<Point>
+                <coordinates> -118.286274, 34.020144, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+		<Placemark>
+            <name> DiningHall </name>
+			<description> Parkside Dining Hall </description>
+            <styleUrl>#z2</styleUrl>
+			<Point>
+                <coordinates> -118.290967, 34.018909, 200 </coordinates>
+            </Point>
+        </Placemark>
+		</Folder>
+		
+		<Folder>
+		<name> buildings </name>
+		<Placemark>
+            <name> RTH </name>
+			<description> Ronald Tutor Hall </description>
+            <styleUrl>#z3</styleUrl>
+			<Point>
+                <coordinates> -118.289920, 34.020136, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+		<Placemark>
+            <name> Viterbi </name>
+			<description> Viterbi </description>
+            <styleUrl>#z3</styleUrl>
+			<Point>
+                <coordinates> -118.289324, 34.020575, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+		<Placemark>
+            <name> Cinematic </name>
+			<description>  USC School of Cinematic Arts </description>
+            <styleUrl>#z3</styleUrl>
+			<Point>
+                <coordinates> -118.286637, 34.023412, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+		<Placemark>
+            <name> THH </name>
+			<description> Taper Hall </description>
+            <styleUrl>#z3</styleUrl>
+			<Point>
+                <coordinates> -118.284555, 34.022227, 200 </coordinates>
+            </Point>
+        </Placemark>
+		
+		<Placemark>
+            <name> Lyon </name>
+			<description> Lyon Center </description>
+            <styleUrl>#z3</styleUrl>
+			<Point>
+                <coordinates> -118.288104, 34.024247, 200 </coordinates>
+            </Point>
+        </Placemark>
+		</Folder>
+		
+	<!-- step5: convex hull -->		
+        <Style id="convexhull">
+            <PolyStyle>
+                <color> #5078F078 </color>
+                <outline> 1 </outline>
+            </PolyStyle>
+        </Style>
+        <Placemark>
+            <name>Convex Hull</name>
+            <Polygon>
+                <extrude> 1 </extrude>
+                <altitudeMode>relativeToGround</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing>
+                        <coordinates>
+							-118.290967,34.018909,100
+							-118.284286,34.018679,100
+							-118.282151,34.021685,100
+							-118.288104,34.024247,100
+							-118.290677,34.020049,100
+							-118.290967,34.018909,100						
+                        </coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+            <styleUrl> #convexhull </styleUrl>
+        </Placemark>
+		
+	<!-- step5: four nearest neighbors -->	
+        <Style id="neighbor">
+            <LineStyle>
+                <width> 7 </width>
+                <color> #6478FA00 </color>
+            </LineStyle>
+        </Style>
+		<Placemark>
+			<name> line(bookstore,neighbor1) </name>
+            <description> USC bookstore to Coffee Bean and Tea Leaf (CB_TL) </description>
+			<LineString>
+				<extrude> 1 </extrude>
+				<altitudeMode> relativeToGround </altitudeMode>
+					<coordinates> 
+						-118.286516,34.020593,100
+						-118.286274,34.020144,100
+					</coordinates>
+			</LineString>
+			<styleUrl>#neighbor</styleUrl>
+		</Placemark>
+
+        <Placemark>
+			<name> line(bookstore,neighbor2) </name>
+            <description> USC bookstore to Little Galen (L_G) </description>
+			<LineString>
+				<extrude> 1 </extrude>
+				<altitudeMode> relativeToGround </altitudeMode>
+					<coordinates> 
+						-118.286516,34.020593,100
+						-118.287045,34.022897,100
+					</coordinates>
+			</LineString>
+			<styleUrl>#neighbor</styleUrl>
+		</Placemark>
+		
+		<Placemark>
+			<name> line(bookstore,neighbor3) </name>
+            <description> USC bookstore to Science and Engineering Library (ScienceLibrary) </description>
+			<LineString>
+				<extrude> 1 </extrude>
+				<altitudeMode> relativeToGround </altitudeMode>
+					<coordinates> 
+						-118.286516,34.020593,100
+						-118.288789,34.019607,100
+					</coordinates>
+			</LineString>
+			<styleUrl>#neighbor</styleUrl>
+		</Placemark>
+		
+		<Placemark>
+			<name> line(bookstore,neighbor4) </name>
+            <description> USC bookstore to Taper Hall (THH) </description>
+			<LineString>
+				<extrude> 1 </extrude> 
+				<altitudeMode> relativeToGround </altitudeMode>
+					<coordinates> 
+						-118.286516,34.020593,100
+						-118.284555,34.022227,100
+					</coordinates>
+			</LineString>
+			<styleUrl>#neighbor</styleUrl>
+		</Placemark>
+    </Document>
+</kml>

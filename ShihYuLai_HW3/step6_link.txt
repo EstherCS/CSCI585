@@ -1,0 +1,62 @@
+http://jsfiddle.net/r91yjgLz/
+
+
+/*
+
+var d = {"k1":
+[[34.021831,-118.283015], 
+[34.020062,-118.283730], 
+[34.018679,-118.284286], 
+[34.020049,-118.290677], 
+[34.019607,-118.288789],
+[34.020593,-118.286516],
+[34.021685,-118.282151],
+[34.022897,-118.287045],
+[34.020144,-118.286274],
+[34.018909,-118.290967],
+[34.020136,-118.289920],
+[34.020575,-118.289324],
+[34.023412,-118.286637],
+[34.022227,-118.284555], 
+[34.024247,-118.288104]]};
+localStorage.setItem("myData",JSON.stringify(d));
+// we can fetch the stored data, just by supplying its key:
+var dataStored = JSON.parse(localStorage.getItem("myData"));
+// verify that we fetched our data correctly
+console.log(dataStored); 
+// load and setup map layers
+initMap();
+var points = dataStored.k1;
+for(var indx in points){
+   console.log(points[indx]);
+   addMarker(points[indx][0], points[indx][1]);
+}
+
+function initMap() {
+        map = new OpenLayers.Map('map');
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+        map.setCenter(
+            new OpenLayers.LonLat(-71.147, 42.472).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                map.getProjectionObject()
+            ), 8
+        );
+}// initMap()
+
+
+function addMarker(latitude, longitude) {
+        var lonLat = new OpenLayers.LonLat(longitude, latitude)
+            .transform(
+                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+        );
+        var point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+        map.setCenter(lonLat, 8);
+        //console.log(latitude + ", " + longitude);
+}// addMarker()
+
+*/

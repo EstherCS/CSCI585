@@ -1,0 +1,45 @@
+CREATE TABLE USCpoints(name varchar PRIMARY KEY, geo GEOMETRY);
+INSERT INTO USCpoints VALUES
+    ('Leavey',         'POINT(34.021831 -118.283015)'),
+    ('Doheny',         'POINT(34.020062 -118.283730)'),
+    ('LawLibrary',     'POINT(34.018679 -118.284286)'),
+    ('AndrusLibrary',  'POINT(34.020049 -118.290677)'),
+    ('ScienceLibrary', 'POINT(34.019607 -118.288789)'),
+    ('bookstore',      'POINT(34.020593 -118.286516)'),
+    ('Starbucks',      'POINT(34.021685 -118.282151)'),
+    ('L_G',            'POINT(34.022897 -118.287045)'),
+    ('CB_TL',          'POINT(34.020144 -118.286274)'),
+	('DiningHall',     'POINT(34.018909 -118.290967)'),
+	('RTH',            'POINT(34.020136 -118.289920)'),
+	('Viterbi',        'POINT(34.020575 -118.289324)'),
+	('Cinematic',      'POINT(34.023412 -118.286637)'),
+	('THH',            'POINT(34.022227 -118.284555)'),
+	('Lyon',           'POINT(34.024247 -118.288104)');
+	
+
+-- Query 1: compute the convex hull	
+SELECT ST_AsText(ST_ConvexHull(ST_Collect(geo))) 	
+FROM USCpoints;
+
+/*
+Outpu :
+
+	POLYGON((34.018909 -118.290967,34.018679 -118.284286,34.021685 -118.282151,34.024247 -118.288104,34.020049 -118.290677,34.018909 -118.290967))
+*/
+
+
+-- Query 2: compute the four nearest neighbors
+SELECT p2.name
+FROM USCpoints as p1, USCpoints as p2
+WHERE p1.name = 'bookstore' and p1.name <> p2.name
+ORDER BY ST_DISTANCE(p1.geo, p2.geo)
+LIMIT 4
+
+/*
+Outpu :
+
+	"CB_TL"
+	"L_G"
+	"ScienceLibrary"
+	"THH"
+*/
